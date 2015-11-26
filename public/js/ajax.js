@@ -7,7 +7,7 @@ function init(){
 
   $("#container").on("submit", ".submit-group-form", submitGroupForm);
   $("#container").on("submit", ".activity_form", submitActivityForm);
-  $("#container").on("click", ".go-to-group-page", getSelectedGroup);
+  $("#container").on("click", ".go-to-group-page", clickGroupPage);
   $(".add-new-group").on("click", newGroupForm);
   $(".view-profile-page").on("click", renderUserProfileView);
 
@@ -51,10 +51,6 @@ function loggedOutState(){
   console.log("logged out")
 
 }
-function newGroupForm(){
-  event.preventDefault();
-  Views.render("./templates/add_group.html", null, "#container");
-}
 
 
 
@@ -94,6 +90,23 @@ function submitGroupForm(){
 
 
     ajaxRequest(method, url, data, displayCurrentGroup);
+    // console.log(data);
+    // console.log(currentUser.groups);
+    // // currentUser.groups.push(data._id);
+    // console.log(currentUser.groups);
+}
+
+function clickGroupPage(){
+  console.log("yo");
+    event.preventDefault();
+
+    // var method = $(this).attr("method");
+    // var url    = "https://plannerr-api.herokuapp.com/api/groups" + $(this).attr("action");
+    // var data   = $(this).serialize();
+
+
+
+    ajaxRequest("get", "https://plannerr-api.herokuapp.com/api/groups/" + $(this).attr("name"), null, displayCurrentGroup);
     // console.log(data);
     // console.log(currentUser.groups);
     // // currentUser.groups.push(data._id);
@@ -157,11 +170,7 @@ function getCurrentGroup(){
   })
 }
 
-function getSelectedGroup(){
-  console.log("here");
-  event.preventDefault();
-  // return ajaxRequest("get", "http://localhost:3000/api/groups"+ )
-}
+
 
 function displayCurrentGroup(data){
   console.log("data is", data)

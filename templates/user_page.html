@@ -15,7 +15,7 @@
     <div class="container" id="activitycolumns">
       <div class="row">
         <ul>
-          <li><div class="col s6" id="lefthalf"><%= displayGroup(groups[0]) %></div></li>
+          <li><div class="col s6" id="lefthalf" ><a href="#!" class="go-to-group-page" name="<%=groups[0]._id%>"><%= displayGroup(groups[0]) %></a></div></li>
           <li><div class="col s6" id="righthalf"><%= displayGroup(groups[1]) %></div></li>
         </ul>
       </div>
@@ -23,8 +23,8 @@
     <div class="container" id="activitycolumns">
       <div class="row">
         <ul>
-          <li><div class="col s6" id="lefthalf">This div is 5-columns wide</div></li>
-          <li><div class="col s6" id="righthalf">This div is 5-columns wide</div></li>
+          <li><div class="col s6" id="lefthalf"><%= displayGroup(groups[3]) %></div></li>
+          <li><div class="col s6" id="righthalf"><%= displayGroup(groups[4]) %></div></li>
         </ul>
       </div>
     </div>
