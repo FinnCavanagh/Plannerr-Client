@@ -19,7 +19,7 @@ $(function(){
       var access_token = res.authResponse.accessToken;
       var facebook_id = res.authResponse.userID;
       
-      FB.api('/me?fields=email,first_name,last_name,picture,friends', function(res) {
+      FB.api('/me?fields=email,first_name,last_name,picture.type(large),friends', function(res) {
         console.info("FB callback", res);
 
         var data = res;
