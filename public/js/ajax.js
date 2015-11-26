@@ -10,6 +10,7 @@ function init(){
   $("#container").on("click", ".go-to-group-page", getSelectedGroup);
   $(".add-new-group").on("click", newGroupForm);
   $(".view-profile-page").on("click", renderUserProfileView);
+
   // Gareth Adding activity render
   $("#container").on("click", ".add-activity", newActivityForm);
   // End Gareth Adding Activity render
@@ -61,6 +62,7 @@ function newGroupForm(){
 function newActivityForm(){
   event.preventDefault();
   Views.render("./templates/add_activity.html", null, "#container");
+  initAutocomplete();
 }
 
 function newGroupForm(){
@@ -114,6 +116,15 @@ function getAppFriends(){
 
 function addUsersToGroup(){
 
+}
+
+function displayGroup(group){
+  if(group){
+    return group.name
+    console.log(group.name);
+  } else {
+    return "No group yet"
+  }
 }
 
 function getActivities(){

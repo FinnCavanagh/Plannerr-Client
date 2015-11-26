@@ -1,22 +1,22 @@
-  <main>
+<main>
     <div class="container">
       <div class="card-panel">
 
       <ul class="tile">
         <div id="gig-content">
-        <p>This is where the profile pic will go</p>
+        <img class="tile" src="<%= user.profile_picture %>">
         </div>
       </ul>
       <div id="name">
-      <p> Users Name </p>
+      <p><%= user.first_name + " " + user.last_name %></p>
       </div>
     </div>
     </div>
     <div class="container" id="activitycolumns">
       <div class="row">
         <ul>
-          <li><div class="col s6" id="lefthalf">This div is 5-columns wide</div></li>
-          <li><div class="col s6" id="righthalf">This div is 5-columns wide</div></li>
+          <li><div class="col s6" id="lefthalf"><%= displayGroup(groups[0]) %></div></li>
+          <li><div class="col s6" id="righthalf"><%= displayGroup(groups[1]) %></div></li>
         </ul>
       </div>
     </div>
