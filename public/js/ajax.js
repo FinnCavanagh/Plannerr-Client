@@ -1,10 +1,13 @@
 $(init);
 
-var currentUser = null;
+
+// var currentUser = null;
 
 function init(){
 
   $("#container").on("submit", ".submit-group-form", submitGroupForm);
+  $("#container").on("submit", ".activity_form", submitActivityForm);
+  $("#container").on("click", ".go-to-group-page", getSelectedGroup);
   $(".add-new-group").on("click", newGroupForm);
   $(".view-profile-page").on("click", renderUserProfileView);
   // Gareth Adding activity render
@@ -12,14 +15,12 @@ function init(){
   // End Gareth Adding Activity render
 }
 
-
-
 function renderUserProfileView(user){
 
   ajaxRequest("get", "https://plannerr-api.herokuapp.com/api/users/" + user._id, null, function(res){
     event.preventDefault();
     console.log("rendering view profile");
-    Views.render("./templates/user_page.html", res, "#container");
+    Views.render("/templates/user_page.html", res, "#container");
   })
 }
 
@@ -39,19 +40,21 @@ function checkLoginState(){
 function loggedInState(){
   //maybe slap this on the page
   console.log("you logged in");
-  var profile_picture = localStorage.getItem("profile_picture");
-  $('.nav-wrapper img').attr('src', profile_picture);
-  // getUsersGroups();
-  ///THIS IS IMPORTANT 4 GERRY
-  console.log(currentUser);
-  // var currentUser = 
 
-//set view for logged in
+  var user = getUser();
+  $('.nav-wrapper img').attr('src', user.profile_picture);
+
 }
 
 function loggedOutState(){
   console.log("logged out")
+
 }
+function newGroupForm(){
+  event.preventDefault();
+  Views.render("/templates/add_group.html", null, "#container");
+}
+
 
 
 // gareth added newActivityForm function
@@ -66,7 +69,7 @@ function newGroupForm(){
 }
 
 function onGroupCreate(){
-  ajaxRequest("POST", 'http://localhost:3000/api/groups', data, authenticationSuccessful);
+  ajaxRequest("POST", 'https://plannerr-api.herokuapp.com/api/groups', data, authenticationSuccessful);
 }
 
 
@@ -83,7 +86,7 @@ function submitGroupForm(){
     event.preventDefault();
 
     var method = $(this).attr("method");
-    var url    = "http://localhost:3000/api" + $(this).attr("action");
+    var url    = "https://plannerr-api.herokuapp.com/api" + $(this).attr("action");
     var data   = $(this).serialize();
 
 
@@ -97,8 +100,12 @@ function submitGroupForm(){
 
 function submitActivityForm(){
   event.preventDefault();
-  console.log("logging button click for activity");
 
+  var method = $(this).attr("method");
+  var url    = "https://plannerr-api.herokuapp.com/api" + $(this).attr("action");
+  var data   = $(this).serialize();
+
+  ajaxRequest(method, url, data, displayCurrentActivity);
 }
 
 function getAppFriends(){
@@ -113,8 +120,16 @@ function getActivities(){
 //get a groups activities
 }
 
-function displayActivities(data){
-//diaplay group activities underneth group header
+function displayCurrentActivity(data){
+  console.log("data is", data)
+  //display group info
+  
+  ajaxRequest("get", "https://plannerr-api.herokuapp.com/api/groups/"+data.activity._id, null, function(res){
+    console.log(res)
+    Views.render("/templates/activity_page.html", res, "#container");
+  });
+  // Views.renderCollection("")
+  // getActivities()
 }
 
 function getUsersInGroup(){
@@ -126,17 +141,27 @@ function displayUsersInGroup(data){
 }
 
 function getCurrentGroup(){
-  return ajaxRequest("get", "http://localhost:3000/api/groups", null, function(){
+  return ajaxRequest("get", "https://plannerr-api.herokuapp.com/groups", null, function(){
     
   })
 }
 
+function getSelectedGroup(){
+  console.log("here");
+  event.preventDefault();
+  // return ajaxRequest("get", "http://localhost:3000/api/groups"+ )
+}
 
 function displayCurrentGroup(data){
-  
+  console.log("data is", data)
   //display group info
-  console.log(data)
-  getActivities()
+  
+  ajaxRequest("get", "https://plannerr-api.herokuapp.com/api/groups/"+data.group._id, null, function(res){
+    console.log(res);
+    Views.render("/templates/group_page.html", res, "#container");
+  });
+  // Views.renderCollection("")
+  // getActivities()
 }
 
 function voteOnActivity(){
@@ -174,11 +199,8 @@ function displayErrors(data){
 }
 
 function authenticationSuccessful(data) {
-  currentUser = data.user;
-  localStorage.setItem("profile_picture", data.user.profile_picture);
-  localStorage.setItem("first_name", data.user.first_name);
-
-  setToken(data.token);
+  setData(data);
+  renderUserProfileView(data.user);
   checkLoginState();
 }
 
@@ -188,12 +210,23 @@ function setRequestHeader(xhr, settings) {
   if(token) xhr.setRequestHeader('Authorization', 'Bearer ' + token);
 }
 
-function setToken(token) {
-  return localStorage.setItem("token", token);
+function setData(data) {
+  localStorage.setItem("profile_picture", data.user.profile_picture);
+  localStorage.setItem("first_name", data.user.first_name);
+  localStorage.setItem("user_id", data.user._id);
+  return localStorage.setItem("token", data.token);
 }
 
 function getToken() {
   return localStorage.getItem("token");
+}
+
+function getUser() {
+  return {
+    id: localStorage.getItem("user_id"),
+    first_name: localStorage.getItem("user_id"),
+    profile_picture: localStorage.getItem("profile_picture")
+  };
 }
 
 function removeToken() {
@@ -221,5 +254,3 @@ function ajaxRequest(method, url, data, callback) {
 //create a html element, to display / show the length of the collection users-voted
 //tick is a click event, changes when clicked
 //counter is there when the page reloads - always
-
-
