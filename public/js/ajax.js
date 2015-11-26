@@ -43,7 +43,7 @@ function loggedInState(){
   console.log("you logged in");
 
   var user = getUser();
-  $('.nav-wrapper img').attr('src', user.profile_picture);
+  $('.nav-wrapper .facebook-img').attr('src', user.profile_picture);
 
 }
 
