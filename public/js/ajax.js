@@ -140,6 +140,14 @@ function displayGroup(group){
   }
 }
 
+function groupIdToGroupPage(group){
+  if(group){
+    return group._id
+  } else {
+    return null
+  }
+}
+
 function getActivities(){
 //get a groups activities
 }

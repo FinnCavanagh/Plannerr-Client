@@ -15,16 +15,16 @@
     <div class="container" id="activitycolumns">
       <div class="row">
         <ul>
-          <li><div class="col s6" id="lefthalf" ><a href="#!" class="go-to-group-page" name="<%=groups[0]._id%>"><%= displayGroup(groups[0]) %></a></div></li>
-          <li><div class="col s6" id="righthalf"><%= displayGroup(groups[1]) %></div></li>
+          <li><div class="col s6" id="lefthalf" ><a href="#!" class="go-to-group-page" name="<%= groupIdToGroupPage(groups[0]) %>"><%= displayGroup(groups[0]) %></a></div></li>
+          <li><div class="col s6" id="righthalf"><a href="#!" class="go-to-group-page" name="<%= groupIdToGroupPage(groups[1]) %>"><%= displayGroup(groups[1]) %></a></div></li>
         </ul>
       </div>
     </div>
     <div class="container" id="activitycolumns">
       <div class="row">
         <ul>
-          <li><div class="col s6" id="lefthalf"><%= displayGroup(groups[3]) %></div></li>
-          <li><div class="col s6" id="righthalf"><%= displayGroup(groups[4]) %></div></li>
+          <li><div class="col s6" id="lefthalf"><a href="#!" class="go-to-group-page" name="<%= groupIdToGroupPage(groups[2]) %>"><%= displayGroup(groups[2]) %></a></div></li>
+          <li><div class="col s6" id="righthalf"><a href="#!" class="go-to-group-page" name="<%= groupIdToGroupPage(groups[3]) %>"><%= displayGroup(groups[3]) %></a></div></li>
         </ul>
       </div>
     </div>
