@@ -20,7 +20,7 @@ function renderUserProfileView(){
   ajaxRequest("get", "https://plannerr-api.herokuapp.com/api/users/" + user.id, null, function(res){
     event.preventDefault();
     console.log("rendering view profile");
-    Views.render("/templates/user_page.html", res, "#container");
+    Views.render("./templates/user_page.html", res, "#container");
   })
 }
 
@@ -52,7 +52,7 @@ function loggedOutState(){
 }
 function newGroupForm(){
   event.preventDefault();
-  Views.render("/templates/add_group.html", null, "#container");
+  Views.render("./templates/add_group.html", null, "#container");
 }
 
 
@@ -60,12 +60,12 @@ function newGroupForm(){
 // gareth added newActivityForm function
 function newActivityForm(){
   event.preventDefault();
-  Views.render("/templates/add_activity.html", null, "#container");
+  Views.render("./templates/add_activity.html", null, "#container");
 }
 
 function newGroupForm(){
   event.preventDefault();
-  Views.render("/templates/add_group.html", null, "#container");
+  Views.render("./templates/add_group.html", null, "#container");
 }
 
 function onGroupCreate(){
@@ -126,7 +126,7 @@ function displayCurrentActivity(data){
   
   ajaxRequest("get", "https://plannerr-api.herokuapp.com/api/groups/"+data.activity._id, null, function(res){
     console.log(res)
-    Views.render("/templates/activity_page.html", res, "#container");
+    Views.render("./templates/activity_page.html", res, "#container");
   });
   // Views.renderCollection("")
   // getActivities()
@@ -158,7 +158,7 @@ function displayCurrentGroup(data){
   
   ajaxRequest("get", "https://plannerr-api.herokuapp.com/api/groups/"+data.group._id, null, function(res){
     console.log(res);
-    Views.render("/templates/group_page.html", res, "#container");
+    Views.render("./templates/group_page.html", res, "#container");
   });
   // Views.renderCollection("")
   // getActivities()
