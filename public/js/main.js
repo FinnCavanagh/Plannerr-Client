@@ -30,7 +30,7 @@ $(function(){
 
         // do this with you ajaxRequest function
         // callback function is gonna be authenticationSuccessfull, which will set the token
-        return ajaxRequest("POST", 'http://localhost:3000/api/auth/facebook', data, authenticationSuccessful);
+        return ajaxRequest("POST", 'https://plannerr-api.herokuapp.com/api/auth/facebook', data, authenticationSuccessful);
         // $.post('http://localhost:3000/api/auth/facebook', data)
         //   .then(function(res) {
         //     // TODO: put token in AJAX request header

@@ -15,8 +15,8 @@ function init(){
   // End Gareth Adding Activity render
 }
 
-function renderUserProfileView(user){
-
+function renderUserProfileView(){
+  var user = getUser();
   ajaxRequest("get", "https://plannerr-api.herokuapp.com/api/users/" + user._id, null, function(res){
     event.preventDefault();
     console.log("rendering view profile");
