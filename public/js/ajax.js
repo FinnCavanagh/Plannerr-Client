@@ -13,6 +13,16 @@ function init(){
 }
 
 
+
+function renderUserProfileView(user){
+
+  ajaxRequest("get", "https://plannerr-api.herokuapp.com/api/users/" + user._id, null, function(res){
+    event.preventDefault();
+    console.log("rendering view profile");
+    Views.render("./templates/user_page.html", res, "#container");
+  })
+}
+
 function checkIfAdmin(){
 //checks to see if  a user is admin
 }
