@@ -17,7 +17,7 @@ function init(){
 
 function renderUserProfileView(){
   var user = getUser();
-  ajaxRequest("get", "https://plannerr-api.herokuapp.com/api/users/" + user._id, null, function(res){
+  ajaxRequest("get", "https://plannerr-api.herokuapp.com/api/users/" + user.id, null, function(res){
     event.preventDefault();
     console.log("rendering view profile");
     Views.render("/templates/user_page.html", res, "#container");
