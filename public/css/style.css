@@ -1,0 +1,188 @@
+body {
+  background-color: #f2f2f2;
+}
+
+.nav-wrapper {
+  background-color: #2ecc71;
+}
+.side-nav {
+  background-color: #f2f2f2;
+}
+
+#main {
+  height: 500px;
+}
+
+.hidden {
+  display: none;
+}
+
+.circle > .responsive-img > img {
+  height: 100px;
+}
+
+
+/*ben added for user page*/
+#topbar {
+  background-color: #2ecc71;
+}
+
+#bottombar {
+  background-color: #2ecc71;
+}
+
+#copyright {
+  background-color: #2ecc71;
+}
+
+.input-field col s12{
+ color: #000;
+}
+
+body {
+ display: flex;
+ min-height: 100vh;
+ flex-direction: column;
+}
+
+main {
+ flex: 1 0 auto;
+}
+
+footer.page-footer {
+  background-color: #2ecc71;
+}
+
+#righthalf {
+  background-color: #2ecc71;
+  width: 47%;
+  border-radius: 5px;
+  margin-left: 2%;
+/*  margin-right: 1%;*/
+  height: 200px;
+  color: #fff;
+}
+
+#lefthalf {
+  background-color: #2ecc71;
+  width: 47%;
+  border-radius: 5px;
+/*  margin-right: 2%;*/
+  margin-left: 2%;
+  height: 200px;
+  color: #fff;
+}
+
+.tile {
+ position: relative;
+ margin: 5px;
+ color: #303030 ;
+ background-color: #F8F8F8;
+ border-color: 303030;
+ border-radius: 50%;
+ width: 300px;
+ height: 300px; 
+ margin: 0 auto;
+}
+
+p {
+  color: #2ecc71;
+  margin-left: 12%;
+}
+
+#name {
+text-align: center;
+margin-right: 11%;
+}
+
+
+/*added for activity page by ben*/
+
+.collapsible {
+  max-width: 500px;
+  text-align: center;
+  margin: 0 auto;
+  border: 20px;
+}
+
+.venuechoicepic {
+  height: 260px;
+  width: 260px;
+  background-color: #F8F8F8;
+  margin: 0 auto;
+  border-radius: 1%;
+/*  margin: 20px;*/
+}
+
+.middle {
+  margin: 0 auto;
+}
+
+h4 {
+  text-align: center;
+  color: #2ecc71;
+}
+
+.activitytile {
+ position: relative;
+ margin: 5px;
+ color: #303030 ;
+ background-color: #F8F8F8;
+ border-color: 303030;
+ border-radius: 50%;
+ width: 50px;
+ height: 50px; 
+ margin: 0 auto;
+}
+
+.timelimit {
+  position: relative;
+  margin: 5px;
+  color: #303030 ;
+  background-color: #F8F8F8;
+  width: 100px;
+  height: 50px; 
+  margin: 0 auto;
+}
+
+.mappinpoint {
+  height: 260px;
+  width: 260px;
+  background-color: #F8F8F8;
+  margin: 0 auto;
+  border-radius: 1%;
+/*  margin: 20px;*/
+}
+
+.collapsible-header {
+  color: #2ecc71;
+}
+
+
+/*buttons on activity page*/
+#buttonContainer {
+  text-align: center;
+}
+
+input[type=submit], button {
+  border: 1px solid #2ecc71;
+  border-radius: 5px;
+  padding: 5px 15px;
+  background: none;
+  outline: none;
+  cursor: pointer;
+  font-weight: 450;
+  width: 130px;
+  color: #2ecc71;
+
+}
+
+input[type=submit]:hover {
+  background: #2ecc71;
+  color: #FFF;
+}
+
+input[type=submit]:active {
+  background: #116611;
+}
+

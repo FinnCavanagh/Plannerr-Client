@@ -1,0 +1,55 @@
+
+  <div class="container">
+    <div class="row">
+      <form class="col s6 submit-group-form" method="post" action="/groups">
+        <div class="row">
+          <div class="input-field col s12">
+            <input name="name" id="first_name" type="text" class="validate">
+            <label for="name">Event Name</label>
+          </div>
+          <div class="input-field col s12">
+            <input name="activity_duration" id="" type="text" class="validate">
+            <label for="activity_duration">Duration of Activity</label>
+          </div>
+          <div class="input-field col s12">
+            <!-- <input name="image" id="" type="text" class="validate">
+            <label for="">Add Image</label> -->
+            <form action="#" method="post">
+              <div class="file-field input-field">
+                <div class="btn">
+                  <span>Add Image</span>
+                  <input type="file">
+                </div>
+                <div class="file-path-wrapper">
+                  <input name="image" class="file-path validate" type="text">
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="input-field col s12">
+            <input name="decision_expiry_time" type="date" class="date-picker"> 
+          </div>
+          <div class="input-field col s12">
+            <select multiple name="users">
+              <option value="" disabled selected>Add Some Friends</option>
+              <option value="1">Option 1</option>
+              <option value="2">Option 2</option>
+              <option value="3">Option 3</option>
+            </select>
+            <label>Materialize Multiple Select</label>
+          </div>
+
+<!--           <div class="input-field col s12">
+            <select name="admin_users" id="admin_users" type="text" class="validate">
+              <option selected="selected"><script type="text/javascript">currentUser._id</script></option>
+            </select>
+          </div> -->
+          <div class="input-field col s12">
+
+            <button type="submit" class="waves-effect waves-light btn col s12" name="action">Add Event</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+

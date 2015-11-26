@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Plannerr App</title>
+    <!-- Compiled and minified CSS for Materialize-->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+    <!-- Our own css link -->
+    <link rel="stylesheet" type="text/css" href="./public/css/style.css">
+    <!-- facebook sdk -->
+    <script src="//connect.facebook.net/en_US/sdk.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <!-- JQUery CDN link from google -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <!-- Compiled and minified JavaScript for Materialize-->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVyDfqZocoTDcoot0M5R9oB6FU2pUfJCo&signed_in=true&libraries=places"></script>
+
+    <script type="text/javascript" src="/public/js/underscore.js"></script>
+    <script type="text/javascript" src="/public/js/ajax.js"></script>
+    <script type="text/javascript" src="/public/js/main.js"></script>
+
+
+    <!-- user_page here -->
+</head>
+
+
+<body>
+<!-- global side-bar is here -->
+<nav>
+  <div class="nav-wrapper">
+    <a href="#" class="brand-logo center">PlannErr</a>
+    <ul id="slide-out" class="side-nav">
+
+      <!-- sidebar nav links if logged out-->
+
+      <li><a href="#!" class="fb-login hidden">Login with Facebook</a></li>
+
+      <!-- sidebar nav links if logged in -->
+      <!-- user profile details -->
+      <div class="row valign-wrapper">
+        <div class="col s4">
+          <img src="" alt="profile picture" class="circle responsive-img"> 
+        </div>
+      </div>
+      
+
+      <li><a href="#!" class="view-profile-page">Profile Page</a></li>
+      <li><a href="#!" class="add-new-group">Add New Event</a></li>
+
+      <li><a href="#!" class="fb-logout hidden">Sign Out</a></li>
+    </ul>
+
+    <a href="#" data-activates="slide-out" class="button-collapse button-collapse show-on-large"><i class="mdi-navigation-menu"></i></a>
+  </div>
+</nav>
+
+
+<div id="status">
+</div>
+
+<div id="container" >
+  <button class="fb-login hidden">Login with Facebook</button>
+</div>
+
+
+</body>
+</html>
