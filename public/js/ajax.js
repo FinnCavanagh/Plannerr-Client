@@ -10,7 +10,8 @@ function init(){
   $("#container").on("click", ".go-to-group-page", clickGroupPage);
   $(".add-new-group").on("click", newGroupForm);
   $(".view-profile-page").on("click", renderUserProfileView);
-  cheatTheSystem();
+  // cheatTheSystem();
+
   // Gareth Adding activity render
   $("#container").on("click", ".add-activity", newActivityForm);
   // End Gareth Adding Activity render
@@ -53,7 +54,16 @@ function loggedOutState(){
 }
 
 
+function getUserByID(){
+  event.preventDefault();
+  var usersAsObject = [];
 
+  group.users.forEach(user, function(){
+    return ajaxRequest("get", "https://plannerr-api.herokuapp.com/api/user"+ user, null, function(){
+      usersAsObject.push(user)
+    })
+  })
+}
 // gareth added newActivityForm function
 function newActivityForm(){
   event.preventDefault();
@@ -81,27 +91,14 @@ function submitGroupForm(){
 
 
     ajaxRequest(method, url, data, displayCurrentGroup);
-    // console.log(data);
-    // console.log(currentUser.groups);
-    // // currentUser.groups.push(data._id);
-    // console.log(currentUser.groups);
+
 }
 
 function clickGroupPage(){
-  console.log("yo");
+
     event.preventDefault();
-
-    // var method = $(this).attr("method");
-    // var url    = "https://plannerr-api.herokuapp.com/api/groups" + $(this).attr("action");
-    // var data   = $(this).serialize();
-
-
-
     ajaxRequest("get", "https://plannerr-api.herokuapp.com/api/groups/" + $(this).attr("name"), null, displayCurrentGroup);
-    // console.log(data);
-    // console.log(currentUser.groups);
-    // // currentUser.groups.push(data._id);
-    // console.log(currentUser.groups);
+
 }
 
 function submitActivityForm(){
@@ -118,14 +115,14 @@ function submitActivityForm(){
 
 function cheatTheSystem(){
   return ajaxRequest("PUT", "https://plannerr-api.herokuapp.com/api/groups/565758625f9ebe03005df38c", {"users": ["565755395f9ebe03005df389", "565756b35f9ebe03005df38a", "565778841fb54e0300765846", "565745fbbf659303002380ae"]}, function(){
-    console.log("success");
+
   })
 }
 
 function displayGroup(group){
   if(group){
     return group.name
-    console.log(group.name);
+
   } else {
     return "No group yet"
   }
@@ -142,11 +139,11 @@ function groupIdToGroupPage(group){
 
 
 function displayCurrentActivity(data){
-  console.log("data is", data)
+
   //display group info
   
   ajaxRequest("get", "https://plannerr-api.herokuapp.com/api/groups/"+data.activity._id, null, function(res){
-    console.log(res)
+
     Views.render("./templates/activity_page.html", res, "#container");
   });
   // Views.renderCollection("")
@@ -171,11 +168,14 @@ function getCurrentGroup(){
 
 function displayCurrentGroup(data){
   console.log("data is", data)
+
   //display group info
   
   ajaxRequest("get", "https://plannerr-api.herokuapp.com/api/groups/"+data.group._id, null, function(res){
     console.log(res);
+    // getUserByID();
     Views.render("./templates/group_page.html", res, "#container");
+
   });
   // Views.renderCollection("")
   // getActivities()
