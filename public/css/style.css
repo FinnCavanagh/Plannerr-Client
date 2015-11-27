@@ -188,3 +188,14 @@ input[type=submit]:active {
   background: #116611;
 }
 
+.col {
+  text-align: center;
+  line-height: 200px;
+
+}
+
+.go-to-group-page {
+  color: white;
+  font-size: 20px;
+}
+
