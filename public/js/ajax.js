@@ -139,12 +139,10 @@ function groupIdToGroupPage(group){
 
 
 function displayCurrentActivity(data){
-
-  //display group info
   
-  ajaxRequest("get", "https://plannerr-api.herokuapp.com/api/groups/"+data.activity._id, null, function(res){
-
+  ajaxRequest("get", "https://plannerr-api.herokuapp.com/api/activities/"+data.activity._id, null, function(res){
     Views.render("./templates/activity_page.html", res, "#container");
+    console.log(res);
   });
   // Views.renderCollection("")
   // getActivities()
