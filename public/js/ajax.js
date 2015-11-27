@@ -57,8 +57,7 @@ function loggedOutState(){
 // gareth added newActivityForm function
 function newActivityForm(){
   event.preventDefault();
-  Views.render("./templates/add_activity.html", null, "#container");
-  initAutocomplete();
+  Views.render("./templates/add_activity.html", null, "#container", initAutocomplete);
 }
 
 function newGroupForm(){

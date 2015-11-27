@@ -1,3 +1,28 @@
+//////////////////////////
+// Google Maps Function //
+//////////////////////////
+
+
+// This example adds a search box to a map, using the Google Place Autocomplete
+// feature. People can enter geographical searches. The search box will return a
+// pick list containing a mix of places and predicted search terms.
+
+function initAutocomplete() {
+  console.log("initAutocomplete");
+  // Create the search box and link it to the UI element.
+  var $input = $('#pac-input');
+  var searchBox = new google.maps.places.SearchBox($input[0]);
+  var $placeId = $('input[name=place_id]');
+
+  var markers = [];
+
+  searchBox.addListener('places_changed', function() {
+    var places = searchBox.getPlaces();
+    $input.val(places[0].name + ", " + places[0].formatted_address);
+    $placeId.val(places[0].id);
+  });
+}
+
 $(function(){
   // Facebook login
   var $fbLogin = $('.fb-login');
@@ -82,32 +107,6 @@ $(function(){
     }
   );
   // end frontend login for facebook
-
-  //////////////////////////
-  // Google Maps Function //
-  //////////////////////////
-
-
-  // This example adds a search box to a map, using the Google Place Autocomplete
-  // feature. People can enter geographical searches. The search box will return a
-  // pick list containing a mix of places and predicted search terms.
-
-  function initAutocomplete() {
-
-    // Create the search box and link it to the UI element.
-    var $input = $('#pac-input');
-    var searchBox = new google.maps.places.SearchBox($input[0]);
-    var $placeId = $('input[name=place_id]');
-
-    var markers = [];
-
-    searchBox.addListener('places_changed', function() {
-      var places = searchBox.getPlaces();
-      $input.val(places[0].name + ", " + places[0].formatted_address);
-
-      $placeId.val(places[0].id);
-    });
-  }
 });
 
 
