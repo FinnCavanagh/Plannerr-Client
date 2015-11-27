@@ -26,9 +26,10 @@ body {
   display: none;
 }
 
-.circle > .responsive-img > img {
-  height: 200px;
+img.responsive-img {
+  height: 100px;
 }
+
 
 
 /*ben added for user page*/
