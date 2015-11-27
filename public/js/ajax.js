@@ -101,8 +101,9 @@ function clickGroupPage(){
 }
 
 function submitActivityForm(){
+  console.log("here");
   event.preventDefault();
-
+  console.log("submitted activity");
   var method = $(this).attr("method");
   var url    = "https://plannerr-api.herokuapp.com/api" + $(this).attr("action");
   var data   = $(this).serialize();
