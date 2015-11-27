@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Compiled and minified CSS for Materialize-->
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
     <!-- Our own css link -->
     <link rel="stylesheet" type="text/css" href="./public/css/style.css">
@@ -38,8 +38,8 @@
     <ul id="slide-out" class="side-nav">
 
       <!-- sidebar nav links if logged out-->
-
-      <li><a href="#!" class="fb-login hidden">Login with Facebook</a></li>
+      <div class="nav-top-margin">
+      <li><a href="#!" class="fb-login hidden"><i class="fa fa-facebook"> Facebook Login</i></a></li>
 
       <!-- sidebar nav links if logged in -->
       <!-- user profile details -->
@@ -50,10 +50,11 @@
       </div> -->
       
 
-      <li><a href="#!" class="view-profile-page">Profile Page</a></li>
-      <li><a href="#!" class="add-new-group">Add New Event</a></li>
+      <li><a href="#!" class="view-profile-page"><i class="fa fa-user"> Profile Page</i></a></li>
+      <li><a href="#!" class="add-new-group"><i class="fa fa-plus"> Add Event</i></a></li>
 
-      <li><a href="#!" class="fb-logout hidden">Sign Out</a></li>
+      <li><a href="#!" class="fb-logout hidden"><i class="fa fa-sign-out"> Sign Out</i></a></li>
+      </div>
     </ul>
 
     <a href="#" data-activates="slide-out" class="button-collapse button-collapse show-on-large"><i class="mdi-navigation-menu"></i></a>

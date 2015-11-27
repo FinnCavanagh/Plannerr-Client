@@ -188,3 +188,18 @@ input[type=submit]:active {
   background: #116611;
 }
 
+.nav-top-margin{
+  margin-top: 30px;
+}
+
+.fa {
+  font-size: 1.2rem;
+}
+
+/*nav .nav-wrapper > i{
+  font-size: 1.2rem;
+}*/
+
+/*.mdi-navigation-menu:before {
+    height: 30px;
+}*/
