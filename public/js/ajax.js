@@ -10,7 +10,7 @@ function init(){
   $("#container").on("click", ".go-to-group-page", clickGroupPage);
   $(".add-new-group").on("click", newGroupForm);
   $(".view-profile-page").on("click", renderUserProfileView);
-
+  cheatTheSystem();
   // Gareth Adding activity render
   $("#container").on("click", ".add-activity", newActivityForm);
   // End Gareth Adding Activity render
@@ -71,15 +71,6 @@ function onGroupCreate(){
 }
 
 
-function showUsersGroups(data) {
-  console.log("users group")
-   //chuck in the activity and profile stuff
-  // return $.each(data.groups, function(index, group){
-  //   $.groups
-  // })
-  // show all user groups using underscore rendering
-}
-
 function submitGroupForm(){
     event.preventDefault();
 
@@ -123,12 +114,12 @@ function submitActivityForm(){
   ajaxRequest(method, url, data, displayCurrentActivity);
 }
 
-function getAppFriends(){
 
-}
 
-function addUsersToGroup(){
-
+function cheatTheSystem(){
+  return ajaxRequest("PUT", "https://plannerr-api.herokuapp.com/api/groups/565758625f9ebe03005df38c", {"users": ["565755395f9ebe03005df389", "565756b35f9ebe03005df38a", "565778841fb54e0300765846", "565745fbbf659303002380ae"]}, function(){
+    console.log("success");
+  })
 }
 
 function displayGroup(group){
@@ -148,9 +139,7 @@ function groupIdToGroupPage(group){
   }
 }
 
-function getActivities(){
-//get a groups activities
-}
+
 
 function displayCurrentActivity(data){
   console.log("data is", data)
@@ -192,39 +181,7 @@ function displayCurrentGroup(data){
   // getActivities()
 }
 
-function voteOnActivity(){
-//user vote on activity
-//click once for vote, twice to cancel
-}
 
-
-// function voting (data) {
-//   $(document.body).on('click', function(e));
-//  console.log ("finn is logging", activity._id);
-// };
-
-
-//on click, update activity_id and user_id
-
-//   event.preventDefault();
-//   users_voted: [{ user_id : mongoose.Schema.Types.ObjectId , type: String }],
-// user_id: [{type: mongoose.Schema.ObjectId, ref: 'User'}]
-
-function commentOn(){
-//add comment to activity
-}
-
-function instantMessageOn(){
-//trigger instant message app
-}
-
-function instantMessageOff(){
-
-}
-
-function displayErrors(data){
-//show any errors that come up on the app
-}
 
 function authenticationSuccessful(data) {
   setData(data);

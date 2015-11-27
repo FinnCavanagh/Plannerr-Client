@@ -1,6 +1,7 @@
 body {
   background-color: #f2f2f2;
   /*margin: 0 auto;*/
+  text-align: center;
 }
 
 .btn {
@@ -95,7 +96,7 @@ footer.page-footer {
 
 p {
   color: #2ecc71;
-  margin-left: 12%;
+  /*margin-left: 12%;*/
 }
 
 #name {
